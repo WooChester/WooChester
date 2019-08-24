@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Chester Woo Developer</title>
+
+	<meta charset= "UTF-8"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="RESUME WEBSITE"/>
+
+	<meta name="keywords" content="resume, Chester Woo, software, software developer, internship, computer science"/>
+
+	<meta name="robots" content="index,follow"/>
+	
+	<link rel="stylesheet" href="betterStyles.css">
+	
+	<script src = "betterJs.js">
+	
+	</script>
+	
+	
+	
+</head>
+
+
+<body>
+	
+	<section id="home"></section>
+	
+	
+	<div id="nav_dropdown">
+	
+		<div class="navIcon" onclick="changeIcon(this)">
+		
+			<div class="iconBackground">
+				<div id="barOne"></div>
+				<div id="barTwo"></div>
+				<div id="barThree"></div>
+			</div>
+			
+		</div>
+		
+		<div class="reference_links" id="links">
+			
+			<div>
+			
+			<img src="phillip_intern.png" style="width: 4vw; margin-left: 3%;">
+			<a href="#home" id="home_link" class="link_buttons" onclick="return changeIcon(this);">Home</a>
+			
+			</br>
+			
+			<img src="phillip_Q.png" style="height: 4vw;">
+			<a href="#yourBoy" id="about_link" class="link_buttons" onclick="return changeIcon(this);">About</a>
+			
+			</br>
+			
+			<img src="phillip_fancy.png" style="width: 4vw; margin-left: -3%;">
+			<a href="#skillz" id="skill_link" class="link_buttons" onclick="return changeIcon(this);">Skills & Programs</a>
+			
+			</br>
+			
+			<img src="phillip_mail.png" style="height: 4vw;">
+			<a href="#phillipMail" id="contact_link" class="link_buttons" onclick="return changeIcon(this);">Contact</a>
+			
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	<div id="scroll_balloon" align="right" style="position: fixed; top: 40px; left: 94%; z-index: 4;">
+		
+		<img src="phillip_hot_air_balloon.png" style="height: 5vw;">
+		<p id="tester"></p>
+	
+	</div>
+	
+	<!--
+	<div class="navigationBar">
+	
+		<a href="#home" id="homeNav" class="navButtons">Home</a>
+		<a href="#yourBoy" id="aboutNav" class="navButtons">About</a>
+		<a href="#skillz" id="skillNav" class="navButtons">Skills & Programs</a>
+		<a href="#phillipMail" id="contactNav" class="navButtons">Contact</a>
+			
+	</div>
+	-->
+	
+	<div class="parallax1">
+	
+		<div class="introduction" style="padding: 15% 0 0 16%; width: 70%;">
+			<div class="backgroundName" style="height: 300px; border-style: solid; border-color: white; ">
+				<div class="theName">CHESTER WOO</div>
+				<div class="theGame">SOFTWARE DEVELOPER</div>
+			</div>
+		</div>
+	
+	</div>
+	
+	<section id="yourBoy"></section>
+	
+	<div class="aboutMe">	
+		<div name="bio" style="height: 600px; width: 95%; padding: 30px;">
+			<img src="BioPic.jpg" style="height: auto; width: 35%;" align= "right">
+			<div style="height: 552px; width: 61%; font-size: 1.5vw; text-align: justify; padding: 30px; background-color: #dcdcdc">
+				<h2 style="text-align: center">About Me</h2>
+				<p>
+				Hello! My name is Chester Woo and welcome to my personal website! I am currently a 
+				junior studying <b>Computer Science</b> at <b>Stony Brook University</b>.
+				From Sodoku to Rubik's Cubes, I've always loved solving puzzles. This made coding a 
+				very appealing idea when deciding what I wanted to do with my life. I am very 
+				interested in Artificial Intelligence but am also curious about many other branches of
+				Computer Science such as application, website, and overall software development. 
+				</br></br>
+				In my spare time I enjoy picking up new interesting hobbies such as piano, unicycling, card
+				tricks, martial arts, and cooking! I am very adamant on being well rounded and bettering myself 
+				in any way that I can. 
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<section id="skillz"></section>
+	
+
+	<div class="parallax2">
+	
+		<div class="skillHeading" id="skillzHeading" align="center">
+			<h>Skills & Programs</h>
+		</div>	
+		
+		<!--
+		
+		<div id="cardStack" style="height: 3000px; z-index: 2;">
+		
+			<div id="leftStack" style="height: 100%; width: 50%; float: left; padding: 150px 0px 0px 0px;" align="center">
+			
+				<div class="card" id="javaCard" onclick="hafunc();">java</div>
+				<div class="card" id="htmlCard">html</div>
+				<div class="card" id="cssCard">css</div>
+				<div class="card" id="illustratorCard">ill</div>
+				
+			</div>
+			
+			<div id="rightStack" style="height: 100%;width: 50%; float: right;" align="center">
+			
+				<div class="card" id="pythonCard">python</div>	
+				<div class="card" id="javascriptCard">js</div>
+				<div class="card" id="cCard">c</div>
+				<div class="card" id="excelCard">excel</div>
+				
+			</div>
+		
+		</div>
+		
+		
+		-->
+		<div id="block_frame" style = "height: 2000px;">
+					
+			<div id="block_stack">
+			
+				<div class="block" id="java_block">JAVA</div>
+				<div class="block" id="html_block">HTML/CSS/JS</div>
+				<div class="block" id="python_block">PYTHON</div>
+				<div class="block" id="c_block">C</div>
+				<div class="block" id="swift_block">SWIFT</div>
+				<div class="block" id="illustrator_block">ILLUSTRATOR</div>
+				<div class="block" id="microsoft_block">MICROSOFT</div>
+				
+				<div class="block" id="link_block">
+					<div id="github_link_block" style="width: 50%; height: 100%; background-color: grey;"> 
+					
+						<img src="github_logo.jpeg" style="width: 15%; height: 90%; margin-top: 1%; ">
+										
+					</div>
+				
+				</div>
+			
+			</div>
+			
+			
+			
+		</div>
+		
+	</div>
+	
+	
+	<section id="phillipMail"></section>
+	
+	<div id="curtain" style="display: none;">
+		<form id="form" method="post" action="contact.php">
+		<div id="postcard_input">
+			<div id="sender" class="postcard_sides">
+				<div id="close_curtain_button" class="sender_info" onclick="close_curtain();">
+					
+					<div class="close_bar" id="close_bar_l"></div>
+					<div class="close_bar" id="close_bar_r"></div>
+				
+				</div>
+				
+				<div id="sender_input_container" class="sender_info">
+					<input type="text" placeholder="Full Name" id="f_name" name="name" class="sender_info_input" required></br>
+					<input type="text" placeholder="Email Address" id="email" name="email" class="sender_info_input" required>
+				</div>
+				
+			</div>
+			
+			<div id="sender_message" class="postcard_sides">
+				<textarea rows="18" wrap="soft" placeholder="Message" id="message_input" required></textarea>
+			</div>
+		</div>
+		<div style="width: 100%;">
+			<input type="submit" id="submit_button" name="message" value="Send Message!">
+		</div>
+		</form>
+	</div>
+	<div>
+	
+		<img src="phillip_hot_air_balloon.png" id="balloon_land">
+
+		<div id="contact_form">
+		
+			<div class="contact_text_font" id="contact_text">
+				<h2>Contact Me</h1>
+				</br>
+				<h3>via</h3>
+				</br>
+				<h1>Phillip Mail</h1>
+			</div>
+		
+			<img src="phillip_contact_card.png" id="contacto" onclick="open_curtain();"></div>
+		</div>
+		
+		
+	</div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
