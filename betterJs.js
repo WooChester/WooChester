@@ -1,271 +1,750 @@
-window.onscroll = function() {
-balloonDecend();
-weHaveTouchdown();
-
-};
-
-
-
-
-function changeIcon(x){
+html, body {
 	
-	if (document.getElementById("links").className == "reference_links"){
-	
-		document.getElementById("links").className = "nav_clicked";
-		document.getElementById("nav_dropdown").className = "nav_dropdown";
-		document.getElementById('barOne').className = "change_barOne";
-		document.getElementById('barTwo').className = "change_barTwo";
-		document.getElementById('barThree').className = "change_barThree";
-		
-	
-	}
-	else{
-	
-		document.getElementById("links").className = "reference_links";
-		document.getElementById("nav_dropdown").className = "";
-		document.getElementById('barOne').className = "";
-		document.getElementById('barTwo').className = "";
-		document.getElementById('barThree').className = "";
-		
-	}
+	scroll-behavior: smooth;
+	background-color: white;
+	height: 100%;
+	margin: 0;
 	
 }
 
-function weHaveTouchdown(){
+a:link{
 
-	var doc_height = document.documentElement.scrollHeight;
-	var already_scrolled = document.documentElement.scrollTop;
-	var user_window_height = window.innerHeight;
+	text-decoration: none;
+
+}
+
+a:hover{
+
+	text-decoration: underline;
+
+}
+
+
+/*---------------------------------------
+	   		   
+	   		      PARALLAX		
+	   		      
+----------------------------------------*/
+
+div.parallax1, div.parallax2 {
 	
-		
-	if ((doc_height - (already_scrolled + user_window_height)) <= 100 || (doc_height - (document.body.scrollTop + user_window_height) <= 100 )){
-		
-		document.getElementById('balloon_land').classList.add("balloon_animation");
-		document.getElementById('contact_text').style.opacity = 1;
-		document.getElementById('balloon_land').style.opacity = 1;
-	}
+	position: relative;
+	background-attachment: fixed;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: 100%;
 	
-	else{
-		
-		document.getElementById('ballon_land').classList.remove("balloon_animation");
 	
-	}
+}
+
+.parallax1 {
+	
+	background-image: url("blurredCityBackground.png");
+	min-height: 100%;
+
+}
+
+.parallax2 {
+
+	background-image: url("artMountain.jpg");
+	min-height: 100%;
+}
+/*---------------------------------------
+		
+		ICON BAR DROPDOWN+CHANGE	
+			
+----------------------------------------*/
+
+#nav_dropdown {
+
+	
+	position: fixed;
+	padding: 10px 0px 0px 10px;
+	z-index: 7;
+
+}
+
+.nav_dropdown{
+
+	background-color: rgba(30, 30, 30, .9);
+	width: 100%;
+	height: 100%;
+	transition: .5s;
+
+}
+
+
+
+.navIcon {
+
+	cursor: pointer;
+	display: inline-block;
+
+}
+
+#barOne, #barTwo, #barThree {
+
+	width: 45px;
+	height: 7px;
+	background-color: black;
+	margin: 7px 7px 7px;
+	transition: 0.4s;
+}
+
+.change_barOne{
+
+	transform: rotate(-45deg) translate(-10px, 10px);
+	
+}
+
+.change_barTwo {
+
+	opacity: 0;
+	
+}
+
+.change_barThree{
+
+	transform: rotate(45deg) translate(-10px, -10px);
+
+}
+
+.change .iconBackground {
+
+	cursor: pointer;
+	padding: 10px 0px 10px 0px;
+	z-index: 3;
+	transition: .3s;
+
+}
+
+
+
+.reference_links {
+
+	margin-top: -300%;
+	transition: .3s;
+	
+}
+
+.nav_clicked {
+
+	line-height: 100px;
+	font-size: 1.6vw;
+	font-family: "Verdana";
+	text-align: left;
+	padding: 4% 0px;
+	padding-left: 40%;
+	transition: .2s;
+	
+
+}
+
+.link_buttons {
+
+	display: inline-block;
+	color: white;
+
+
+}
+
+
+
+/*---------------------------------------
+	
+		ICON BAR TAB ACROSS TOP		
+		
+----------------------------------------*/
+
+
+/*
+.navigationBar{
+
+	position: fixed;
+	z-index: 3;
+	right: 21.5%;
+	font-size: 1.5vw;
+	color: white;
+	display: inline-block;
+	
+}
+
+.navButtons {
+
+	font-family: "Verdana";
+	color: white;
+	text-align: center;
+	padding: 0px 50px 0px;
+	text-shadow: 2px 1px #000;
+
+}
+
+*/
+
+
+/*---------------------------------------
+			  
+			   TITLE SCREEN	
+			   	
+----------------------------------------*/
+
+
+.introduction {
+
+	color: white;
+	font-family: "Verdana";
+	text-align: center;
+	top: 30%;
+	text-shadow: 2px 2px #000;
 	
 	
 
 }
+
+.theName{
+
+	font-size: 7vw;
+	position: relative;
+	top: 23%;
+
+}
+
+.theGame{
+
+	font-size: 2vw;
+	position: relative;
+	top: 30%;
+
+}
+
+/*------------------------------------------------------
 		
-function balloonDecend() {
+		BEGINNING MOVEMENT FOR ORIGINAL MOVEMENTS
+				
+--------------------------------------------------------*/
 
-	var window_height = window.innerHeight - document.getElementById('scroll_balloon').offsetHeight + 65;
-	var doc_height = document.documentElement.scrollHeight;
-	var already_scrolled = document.documentElement.scrollTop;
-	var far_down = window_height*(already_scrolled/doc_height) + 40;
-	
-	var test = document.getElementById('phillipMail').offsetTop;
-	
-	var block_stack = document.getElementById('block_stack');
-	var java_block = document.getElementById('java_block');
 
-	document.getElementById('scroll_balloon').style.top = far_down + 'px';
-	
-
-	
+/*
+@keyframes nameMove {
+	from {
+		left: -30%;
 	}
+	to {
+		left: 0%;
+	}
+}
 
-/*******************************
+@keyframes gameMove {
+	from {
+		left: 30%;
+	}
+	to {
+		left: 0%;
+	}
+}
 
-	FADE BLOCK ANIMATION
+.theName {
+	
+	animation: nameMove 1.5s;
+	animation-timing-function: ease;
+	position: absolute;
+	top: 35%;
+	width: 100%;
+	color: white;
+	text-shadow: 2px 2px #000;
+	font-size: 5vw;
+	font-family: "Zapfino";
+	text-align: center;
+	
 
-********************************/
+}
+
+.theGame {
+
+	animation: gameMove 1.5s;
+	animation-timing-function: ease;
+	position: absolute;
+	top: 57%;
+	width:100%;
+	color: white;
+	text-shadow: 2px 2px #000;
+	font-size: 2vw;
+	font-family: "Zapfino";
+	text-align: center;
+
+}
+*/
+
+
+
+/*---------------------------------------
+				
+				ABOUT ME
+						
+----------------------------------------*/
+
+
+.aboutMe{
+
+	height: 45vw;
+	width: 95%;
+	margin: 2.5% 2.5%;
+	background-color: white;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 2vw;
+	color: black;
+	line-height: 100%;
+
+}
+
+
+/*---------------------------------------
+				
+				SKILLS 	
+				
+----------------------------------------*/
 /*
 
+.skillHeading {
 
-function blocksFade() {
-
-	var already_scrolled = document.documentElement.scrollTop;
-
-	var window_start = (2*window.innerHeight);
+	width: 100%;
+	position: sticky;
+	top: 0;
+	padding: 40px 0px 0px 0px;
+	font-family: "didot";
+	color: white;
+	z-index: 2;
+	font-size: 4vw;
+	font-style: italic;
+	letter-spacing: 5px;
 	
-	var increment = 0;
-	var new_start = already_scrolled - (window_start);
-	
-	var opacity_ratio;
-	
-	var java_block_max = 200 	//	REAL MAX 220 //;
-	var html_block_max = 451;
-	var python_block_max = 573;
-	
-		document.getElementById('tester').innerHTML = new_start;
-
-	
-	
-	//java_block.innerHTML = new_start;
-
-	
-	
-	if (new_start >= 0){ 
-		var java_block = document.getElementById('java_block');
-	
-		opacity_ratio = new_start/java_block_max;
-		java_block.style.opacity = opacity_ratio;
-
-	}
-		
-	increment = increment + java_block_max;
-	
-	if (new_start >= java_block_max){
-		
-		var html_block = document.getElementById('html_block');
-		var block_ratio_start = new_start - increment;
-		var block_ratio_end = html_block_max - increment;
-
-		opacity_ratio = block_ratio_start/block_ratio_end;
-		html_block.style.opacity = opacity_ratio;
-
-	}
-	increment = increment + html_block_max;
-
-	if (new_start >= html_block_max) {
-
-		var python_block = document.getElementById('python_block');
-		var block_ratio_start = new_start - increment;
-		var block_ratio_end = python_block_max - increment;
-		
-		opacity_ratio = block_ratio_start/block_ratio_end;
-		python_block.style.opacity = opacity_ratio;
-	
-	}
-
-	
-
 }
+
+
 */
 
-/***********************
-	BUBBLE ANIMATION 
-************************
-
-
-
-function bubbleFade() {
-	
+/*---------------------------------------
 			
- 		if (document.body.scrollTop > 1550 || document.documentElement.scrollTop > 1550){
- 			document.getElementById('javaCard').style.opacity = 1;
-  		}
-  		else{
-  			document.getElementById('javaCard').style.opacity = 0;
-  		}
-  		
-  		if(document.body.scrollTop > 1800 || document.documentElement.scrollTop > 1800){
-  			
-  			document.getElementById('pythonCard').style.opacity = 1;
-  			document.getElementById('javaCard').style.opacity = 0;
-  		}
-  		else{
-  			document.getElementById('pythonCard').style.opacity = 0;
-  		}
-  			
-  		if (document.body.scrollTop > 2100 || document.documentElement.scrollTop > 2100){
-  			
-  			document.getElementById('htmlCard').style.opacity = 1;
-			document.getElementById('pythonCard').style.opacity = 0;
-  			
-  		}
-  			
-  		else{
-  			document.getElementById('htmlCard').style.opacity = 0;
-  		}
-  			
-  		if (document.body.scrollTop > 2400 || document.documentElement.scrollTop > 2400){
-  			
-  			document.getElementById('javascriptCard').style.opacity = 1;
-  			document.getElementById('htmlCard').style.opacity = 0;
-  			
-  		}
-  			
-  		else{
-  			document.getElementById('javascriptCard').style.opacity = 0;
-  		}
-  			
-			if (document.body.scrollTop > 2700 || document.documentElement.scrollTop > 2700){
-  			
-  			document.getElementById('cssCard').style.opacity = 1;
-  			document.getElementById('javascriptCard').style.opacity = 0;
-  			
-  		}
-  			
-			else{
-  			document.getElementById('cssCard').style.opacity = 0;
-  		}
-  			
-  		if (document.body.scrollTop > 3000 || document.documentElement.scrollTop > 3000){
-  			
-  			document.getElementById('cCard').style.opacity = 1;
-			document.getElementById('cssCard').style.opacity = 0;
-  			
-  		}
-  			
-  		else{
-  			document.getElementById('cCard').style.opacity = 0;
-  		}
-  			
-  		if (document.body.scrollTop > 3300 || document.documentElement.scrollTop > 3300){
-  			
-  			document.getElementById('illustratorCard').style.opacity = 1;
-  			document.getElementById('cCard').style.opacity = 0;
-  			
-  		}
-  			
-  		else{
-  			document.getElementById('illustratorCard').style.opacity = 0;
-  		}
-  			
-  		if (document.body.scrollTop > 3600 || document.documentElement.scrollTop > 3600){
-  			
-  			document.getElementById('excelCard').style.opacity = 1;
-  			document.getElementById('illustratorCard').style.opacity = 0;
-  		
-		}
-  			
-  		else{
-  			document.getElementById('excelCard').style.opacity = 0;
-  		}
-  			
-  			if (document.body.scrollTop > 3900 || document.documentElement.scrollTop > 3900){
-  			document.getElementById('excelCard').style.opacity = 0;
-  			document.getElementById('skillzHeading').style.opacity = 0;
-  			
-  		}
-  			
-  		else {
-  			document.getElementById('skillzHeading').style.opacity = 1;
-  				
-  		}			
+			SKILLS CLOUD VER.
+					
+----------------------------------------*/
+
+/*
+.card {
+
+	position: sticky;
+	top: 35%;
+	padding: 30px 0px;
+	background-color: #d6f5f5;
+	width: 35vw;
+	height: 15vw;
+	display: inline-block;
+	margin: 0px 0px 300px 0px;
+	border-radius: 500px;
+	opacity: 0;
+	transition: .35s;
+
+}
+*/
+
+/*---------------------------------------
+			
+			SKILLS PUZZLE VER		
+			
+----------------------------------------*/
+/*
+#block_stack {
+
+	height: 96.3%;
+	width: 60%;
+	margin: 5% 0px 0px 20%;
+	font-family: "didot";
+	font-style: italic;
+	font-size: 200%;
+	
+}
+
+
+.block {
+
+	text-align: center;
+	background-color: rgb(0,0,0,.4);
+	border: .5px solid black;
+	color: white;
+	opacity: 0;
+
+}
+
+
+#java_block {
+
+	width: 45%;
+	height: 17.1%;
+	position: sticky;
+	top: 20%;
+	left: 20%;
+	transition: .7s;
+	margin-top: 250px;
+	
+}
+
+#html_block {
+
+	width: 30%;
+	height: 13%;
+	position: sticky;
+	top: 20%;
+	left: 47%;
+	margin-top: -100px;
+	font-size: 65%;
+}
+
+#python_block {
+
+	width: 75%;
+	height: 4.7%;
+	position: sticky;
+	top: 65.7%;
+	left: 20%;
+	margin-top: 200px;
+		
+}
+
+#c_block {
+
+	width: 30%;
+	height: 4.2%;
+	position: sticky;
+	top: 54.5%;
+	left: 47%;
+	font-size: 80%;
+
+}
+
+#swift_block {
+
+	width: 24.5%;
+	height: 5%;
+	position: sticky;
+	top: 20%;
+	left: 65%;
+	font-size: 80%;	
+	
+
+}
+
+#illustrator_block {
+
+	width: 24.5%;
+	height: 10%;
+	position: sticky;
+	top: 33.3%;
+	left: 65%;
+	margin-top: 150px;
+	font-size: 60%;
+
+}
+
+#microsoft_block {
+
+	width: 24.5%;
+	height: 6.8%;
+	position: sticky;
+	top: 60%;
+	left: 65%;
+	margin-top: 150px;
+	font-size: 60%;
+}
+
+#link_block {
+
+	width: 100%;
+	height: 4%;
+	position: sticky;
+	margin-top: 150px;
+	top: 80%;
+	padding: 2% 0px;
+	background-color: transparent;
+	border: none;
+
+}
+
+
+#link_block a {
+
+	color: white;
+	font-size: 20px;
+	letter-spacing: 3px;
+
 }
 
 */
 
-function open_curtain(){
+/*---------------------------------------
 
-	document.getElementById('curtain').className = "curtain";
-	document.getElementById('curtain').style.display = "inherit";
-	document.getElementById('close_curtain_button').style.display = "inline";
+
+			SKILLS AND PROJECTS
+			
+-----------------------------------------*/
+
+
+#language_box {
 	
+	display: inline-block;
+	width: 25%;
+	text-align: center;
+	padding: 1%;
+	color: white;
+	vertical-align: top;
+	position: sticky;
+	top: 10%;
+}
+
+
+#project_box {
+	
+	display: inline-block;
+	width: 65%;
+	text-align: center;
+	padding: 1%;
+	color: white;
+	vertical-align: top;
 	
 }
 
-function close_curtain(){
+.project {
 
-	document.getElementById('curtain').className = "";
-	document.getElementById('close_curtain_button').style.display = "none";
-	document.getElementById('curtain').style.display = "none";
+	width: 90%;
+	height: 20vh;
+	margin-left: 5%;
+	padding: 5% 0%;
+	border-bottom: 1px solid white;
+	
+
+}
+
+/*---------------------------------------
+				
+				CONTACT
+				 		
+-----------------------------------------*/
+
+.animation_box {
+
+	width: 20vw;
+	height: 20vw;
+	background-color: black;
+	position: inherit;
+	display: inherit;
+	top: 25%;
+	left: 40%;
+	
+}
+
+.curtain {
+
+	background-color: rgba(50, 50, 50, .9);
+	width: 100%;
+	height: 100%;
+	opacity: 30%;
+	position: absolute;
+	z-index: 5;
+	opacity: 1;
 
 }
 
-function test_func(){
+#form {
 
-	alert("HELLO");
+	width: 50%;
+	height: 70%;
+	padding: 10% 0px 0px 25%;
 
 }
+
+#postcard_input {
+
+	width: 100%;
+	height: 80%;
+	background-color: white;
+}
+
+#sender {
+
+	width: 50%;
+	height: 100%;
+	background-color: white;
+	float: left;
+
+}
+
+#close_curtain_button {
+
+	width: 15%;
+	height: 12%;
+	float: left;
+
+}
+
+.close_bar {
+
+	width: 80%;
+	height: 10%;
+	background-color: black;
+
+}
+
+#close_bar_l {transform: rotate(45deg) translate(18px, 10px);}
+#close_bar_r {transform: rotate(-45deg) translate(-8px, 13px);}
+
+#sender_input_container{
+
+	width: 100%;
+	height: 100%;
+	padding: 50% 0px 0px 5%;
+		
+}
+
+
+.sender_info_input {
+
+	width: 90%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid grey;
+	color: #000;
+	font-size: 25px;
+	text-align: center;
+	letter-spacing: 5px;
+
+}
+
+input{
+	
+	height: 60px;
+
+}
+
+#email {
+
+	font-size: 15px;
+	letter-spacing: 4px;
+
+}
+
+#sender_message {
+
+	
+	width: 50%;
+	float: right;
+	margin-top: 7%;
+	
+}
+
+
+
+#message_input {
+
+	background-color: transparent;
+	border: none;
+	border-left: 1px solid black;
+	padding: 30px 20px;
+	width: 80%;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+
+#submit_button {
+
+
+	width: 100%;
+	line-height: 200%;
+	border: none;
+	border-top: 1px dashed black;
+	outline: none;
+	letter-spacing: 8px;
+	font-size: 20px;
+	background-color: white;
+	color: grey;
+
+}
+
+/**********************************
+ 
+   BACKGROUND IMAGE FOR POSTCARD
+   
+***********************************/
+
+
+#contact_form {
+
+
+	position: absolute;
+	z-index: 3;
+
+}
+
+#contact_card_image {
+
+	width: 65%;
+	margin-top: 100px;
+	padding-left: 9%;
+	padding-bottom: 40px;
+	z-index: 2;
+	cursor: pointer;
+
+}
+.contact_text_font {
+
+	font-family: "Comic Sans MS";
+	letter-spacing: 6px;
+}
+
+#contact_text {
+
+	text-align: center;
+	line-height: 0%;
+	position: absolute;
+	left: 41.5%;
+	top: 10%;
+	transition: 1s;
+	opacity: 0;
+	
+}
+
+#balloon_land {
+
+	position: relative;
+	width: 30%;
+	right: 20px;	
+	padding-top: 150px;
+	float: right;
+	z-index: 1;
+	transition: 3.5s;
+	opacity: 0;
+}
+
+.balloon_animation {
+
+	animation-name: touchdown;
+	animation-duration: 5s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes touchdown {
+
+	from{
+		bottom: 200px;
+	}
+	to{
+		bottom: 0px;
+
+
+}
+
+
+
+
+
+
+
