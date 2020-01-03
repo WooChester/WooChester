@@ -1,7 +1,11 @@
 window.onscroll = function() {
 balloonDecend();
 weHaveTouchdown();
+
 };
+
+
+
 
 function changeIcon(x){
 	
@@ -22,7 +26,6 @@ function changeIcon(x){
 		document.getElementById('barOne').className = "";
 		document.getElementById('barTwo').className = "";
 		document.getElementById('barThree').className = "";
-
 		
 	}
 	
@@ -30,14 +33,13 @@ function changeIcon(x){
 
 function weHaveTouchdown(){
 
-
 	var doc_height = document.documentElement.scrollHeight;
 	var already_scrolled = document.documentElement.scrollTop;
 	var user_window_height = window.innerHeight;
 	
-	
-	if ((doc_height - (already_scrolled + user_window_height)) == 0 || (doc_height - (document.body.scrollTop + user_window_height) == 0 )){
-	
+		
+	if ((doc_height - (already_scrolled + user_window_height)) <= 100 || (doc_height - (document.body.scrollTop + user_window_height) <= 100 )){
+		
 		document.getElementById('balloon_land').classList.add("balloon_animation");
 		document.getElementById('contact_text').style.opacity = 1;
 		document.getElementById('balloon_land').style.opacity = 1;
@@ -55,19 +57,90 @@ function weHaveTouchdown(){
 		
 function balloonDecend() {
 
-
 	var window_height = window.innerHeight - document.getElementById('scroll_balloon').offsetHeight + 65;
 	var doc_height = document.documentElement.scrollHeight;
 	var already_scrolled = document.documentElement.scrollTop;
 	var far_down = window_height*(already_scrolled/doc_height) + 40;
 	
 	var test = document.getElementById('phillipMail').offsetTop;
+	
+	var block_stack = document.getElementById('block_stack');
+	var java_block = document.getElementById('java_block');
 
 	document.getElementById('scroll_balloon').style.top = far_down + 'px';
+	
+
+	
+	}
+
+/*******************************
+
+	FADE BLOCK ANIMATION
+
+********************************/
+/*
+
+
+function blocksFade() {
+
+	var already_scrolled = document.documentElement.scrollTop;
+
+	var window_start = (2*window.innerHeight);
+	
+	var increment = 0;
+	var new_start = already_scrolled - (window_start);
+	
+	var opacity_ratio;
+	
+	var java_block_max = 200 	//	REAL MAX 220 //;
+	var html_block_max = 451;
+	var python_block_max = 573;
+	
+		document.getElementById('tester').innerHTML = new_start;
+
+	
+	
+	//java_block.innerHTML = new_start;
+
+	
+	
+	if (new_start >= 0){ 
+		var java_block = document.getElementById('java_block');
+	
+		opacity_ratio = new_start/java_block_max;
+		java_block.style.opacity = opacity_ratio;
+
+	}
+		
+	increment = increment + java_block_max;
+	
+	if (new_start >= java_block_max){
+		
+		var html_block = document.getElementById('html_block');
+		var block_ratio_start = new_start - increment;
+		var block_ratio_end = html_block_max - increment;
+
+		opacity_ratio = block_ratio_start/block_ratio_end;
+		html_block.style.opacity = opacity_ratio;
+
+	}
+	increment = increment + html_block_max;
+
+	if (new_start >= html_block_max) {
+
+		var python_block = document.getElementById('python_block');
+		var block_ratio_start = new_start - increment;
+		var block_ratio_end = python_block_max - increment;
+		
+		opacity_ratio = block_ratio_start/block_ratio_end;
+		python_block.style.opacity = opacity_ratio;
+	
+	}
+
+	
+
 }
-
-
-
+*/
 
 /***********************
 	BUBBLE ANIMATION 
@@ -190,13 +263,9 @@ function close_curtain(){
 	document.getElementById('curtain').style.display = "none";
 
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+function test_func(){
+
+	alert("HELLO");
+
+}
